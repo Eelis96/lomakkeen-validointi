@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lomakkeen validointi</title>
+    <style>
+        body{text-align: center;}
+    </style>
+</head>
+<body>
+    <form action="" name="tieto" required>
+        Käyttäjä ID: <input type="text" id="username"><br>
+        Salasana: <input type="password" id="salasana"><br>
+        Nimi: <input type="text" id="nimi"><br>
+        Osoite: <input type="text" id="osoite"><br>
+        Postinumero: <input type="text" id="postinumero"><br>
+        Sähköposti: <input type="text" id="email"><br>
+    </form>
+    <form action="">
+        Sukupuoli:
+        <input type="radio" value="mies" name="sukupuoli" checked>
+        <label for="mies">Mies</label>
+        <input type="radio" value="nainen" name="sukupuoli">
+        <label for="nainen">Nainen</label><br>
+
+        Maa: <select name="" id="" required>
+            <option value="">Suomi</option>
+            <option value="">Tunisia</option>
+            <option value="">Norsunluurannikko</option>
+        </select><br>
+    </form>
+
+    <form action="">
+        Kieli:
+        <input type="radio" value="suomi" name="kieli" checked>
+        <label for="suomi">Suomi</label>
+        <input type="radio" value="muu" name="kieli">
+        <label for="muu">Muu</label><br>
+    </form>
+    Lisätietoja: <br>
+    <textarea name="" id="" cols="30" rows="10"></textarea><br>
+    <button onclick="myFunction()">Lähetä</button>
+    <script>
+
+        function myFunction(){
+            let username = document.getElementById("username").value;
+            let postinumero = document.getElementById("postinumero").value;
+            let email = document.getElementById("email").value;
+
+            if(postinumero.length < 5 || postinumero == NaN){
+                window.alert("Postinumero ei ole oikeassa muodossa")
+            }
+            if(username.length < 6){
+                window.alert("Käyttäjänimi liian lyhyt")
+            }
+            if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+                return(true)
+            }else{
+                window.alert("Sähköpostiosoite ei ole oikeassa muodossa")
+                return(false)
+            }
+        }
+
+
+
+
+    </script>
+
+
+</body>
+</html>
